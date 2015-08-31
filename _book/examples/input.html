@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Install | docs-react-validation-mixin</title>
+        <title>Input | docs-react-validation-mixin</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../overview/getting-started.html" />
+    <link rel="next" href="../examples/checkbox.html" />
     
     
-    <link rel="prev" href="../overview/index.html" />
+    <link rel="prev" href="../api/clearValidations.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Mon Aug 31 2015 18:57:56 GMT-0400 (EDT)">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Mon Aug 31 2015 18:57:56 GMT-0400 (EDT)">
     
 
 <div class="book-summary">
@@ -82,7 +82,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1" data-path="overview/install.html">
+        <li class="chapter " data-level="1.1" data-path="overview/install.html">
             
                 
                     <a href="../overview/install.html">
@@ -296,7 +296,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1" data-path="examples/input.html">
+        <li class="chapter active" data-level="3.1" data-path="examples/input.html">
             
                 
                     <a href="../examples/input.html">
@@ -451,17 +451,59 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="install">Install</h1>
-<p>Install <strong>mixin</strong> via npm:</p>
-<pre><code class="lang-javascript">&gt; npm install --save react-validation-mixin
+                        <h1 id="input">Input</h1>
+<p>Simple component with single input field validation.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> classnames <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;classnames&apos;</span>;
+<span class="hljs-keyword">import</span> Joi <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;joi&apos;</span>;
+<span class="hljs-keyword">import</span> strategy <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;joi-validation-strategy&apos;</span>;
+<span class="hljs-keyword">import</span> validation <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-validation-mixin&apos;</span>;
+
+<span class="hljs-keyword">var</span> Demo = React.createClass({
+  displayName: <span class="hljs-string">&apos;Demo&apos;</span>,
+  validatorTypes:  {
+    name: Joi.string().required().label(<span class="hljs-string">&apos;Name&apos;</span>),
+  },
+  getValidatorData: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+  },
+  getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {
+      name: <span class="hljs-literal">null</span>
+    };
+  },
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">htmlFor</span>=<span class="hljs-value">&apos;name&apos;</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span>
+          <span class="hljs-attribute">type</span>=<span class="hljs-value">&apos;text&apos;</span>
+          <span class="hljs-attribute">ref</span>=<span class="hljs-value">&apos;name&apos;</span>
+          <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">&apos;Enter Name&apos;</span>
+          <span class="hljs-attribute">value</span>=<span class="hljs-value">{this.state.name}</span>
+          <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.onChange(&apos;name&apos;)}</span>
+          <span class="hljs-attribute">onBlur</span>=<span class="hljs-value">{this.props.handleValidation(&apos;name&apos;)}</span>
+        /&gt;</span>
+        {this.props.getValidationMessages(&apos;name&apos;).map(this.renderHelpText)}
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    )</span>
+  },
+  renderHelpText: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">&quot;help-block&quot;</span>&gt;</span>{message}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    )</span>;
+  },
+  onChange: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">field</span>) </span>{
+    <span class="hljs-keyword">return</span> event =&gt; {
+      <span class="hljs-keyword">let</span> state = {};
+      state[field] = event.target.value;
+      <span class="hljs-keyword">this</span>.setState(state);
+    };
+  }
+});
+
+<span class="hljs-built_in">module</span>.exports = validation(strategy)(Demo);
 </code></pre>
-<p>Install <strong>validation strategy</strong> via npm:</p>
-<pre><code class="lang-javascript">&gt; npm install --save joi-validation-strategy
-</code></pre>
-<p>Make sure you install the peer dependency <a href="https://github.com/hapijs/joi" target="_blank">Joi</a> if using the <em>joi-validation-strategy</em>:</p>
-<pre><code class="lang-javascript">&gt; npm install --save joi
-</code></pre>
-<p><em>See <a href="https://github.com/hapijs/joi" target="_blank">Joi</a> for a full list of api validation strategies available.</em></p>
 
                     
                     </section>
@@ -472,10 +514,10 @@
         </div>
 
         
-        <a href="../overview/index.html" class="navigation navigation-prev " aria-label="Previous page: Overview"><i class="fa fa-angle-left"></i></a>
+        <a href="../api/clearValidations.html" class="navigation navigation-prev " aria-label="Previous page: clearValidations"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../overview/getting-started.html" class="navigation navigation-next " aria-label="Next page: Getting Started"><i class="fa fa-angle-right"></i></a>
+        <a href="../examples/checkbox.html" class="navigation navigation-next " aria-label="Next page: Checkbox"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

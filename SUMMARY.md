@@ -20,5 +20,5 @@ Simple validation framework for React.
 * [Examples](examples/README.md)
     * [Input](examples/input.md)
     * [Checkbox](examples/checkbox.md)
-    * [Select](examples/select.md)
+    <!-- * [Select](examples/select.md) -->
     * [Radio](examples/radio.md)

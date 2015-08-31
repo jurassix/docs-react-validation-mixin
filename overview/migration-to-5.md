@@ -4,7 +4,7 @@ Follow these steps to have a seemless migration from 4.x to 5.0
 
 ### install a strategy
 
-_react-validaion-mixin_ is now extendable via strategies. You will need to install the _joi-validation-strategy_ separately.
+_react-validation-mixin_ is now extendable via strategies. You will need to install the _joi-validation-strategy_ separately.
 
 ```javascript
 > npm install --save joi-validation-strategy
