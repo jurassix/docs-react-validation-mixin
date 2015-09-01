@@ -12,6 +12,7 @@ Simple validation framework for React.
     * [Migration to 5.0](overview/migration-to-5.md)
 * [API](api/README.md)
     * [validateTypes](api/validationTypes.md)
+    * [getValidatorData](api/getValidatorData.md)
     * [errors](api/errors.md)
     * [validate](api/validate.md)
     * [isValid](api/isValid.md)
