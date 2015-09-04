@@ -24,7 +24,8 @@ validatorTypes:  {
         email: '{{key}} custom email message.',
       }
     }
-  })
+  }),
+}
 ```
 
 ### 2) Global message override via strategy
