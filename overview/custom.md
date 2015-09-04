@@ -17,11 +17,11 @@ validatorTypes:  {
   email: Joi.string().email().min(3).max(10).required().label('Email').options({
     language: {
       any: {
-        required: '{{!key}} custom required message.',
+        required: '{{key}} custom required message.',
       },
       string: {
-        base: '{{!key}} custom string message.',
-        email: '{{!key}} custom email message.',
+        base: '{{key}} custom string message.',
+        email: '{{key}} custom email message.',
       }
     }
   })
@@ -35,11 +35,11 @@ By providing the options to the strategy they apply to all schema validations. U
 const options = {
   language: {
     any: {
-      required: '{{!key}} custom required message.',
+      required: '{{key}} custom required message.',
     },
     string: {
-      base: '{{!key}} custom string message.',
-      email: '{{!key}} custom email message.',
+      base: '{{key}} custom string message.',
+      email: '{{key}} custom email message.',
     }
   }
 };
