@@ -8,7 +8,7 @@ There are two ways to define custom messages; on the schema via options and glob
 
 ### 1) Options provided to specific schema
 
-By providing the options to a single schema only that validators messages will be customized.
+By providing the options to an individual schema, you can override messages when validating the single field.
 
 ```javascript
 validatorTypes:  {
@@ -29,7 +29,7 @@ validatorTypes:  {
 
 ### 2) Global message override via strategy
 
-By providing the options to the strategy they apply to all schema validations. Using this pattern you can externalize the overrides and provide Internationalization or centrally manage all messages displayed to users.
+By providing the options to the **strategy**, the custom messages will be applied to all schema validations. Using this pattern you can externalize the overrides and provide Internationalization or centrally manage all messages displayed to users.
 
 ```javascript
 const options = {
