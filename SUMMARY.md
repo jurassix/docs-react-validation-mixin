@@ -8,7 +8,7 @@ Simple validation framework for React.
     * [Basic Example](overview/basic-example.md)
     * [ES6 Classes + FLUX Example](overview/es6-classes-flux.md)
     * [Strategy Pattern](overview/strategies.md)
-    <!-- * [Custom Validations](overview/custom.md) -->
+    * [Custom Validations and I18N](overview/custom.md)
     * [Migration to 5.0](overview/migration-to-5.md)
 * [API](api/README.md)
     * [validateTypes](api/validationTypes.md)
