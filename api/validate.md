@@ -2,7 +2,7 @@
 
 ### `validate([key,] callback)`
 
-Asynchronous validation of entire form or specifc key if provided. Error-first callback will return an error if form or key is invalid.
+Asynchronous validation of entire form or specific key if provided. Error-first callback will return an error if form or key is invalid.
 
 This API allows developers to validate a single field or the entire form if no key is provided.
 
