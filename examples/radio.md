@@ -25,13 +25,21 @@ var Demo = React.createClass({
   render: function() {
     return (
       <div className='form-group'>
-        <label htmlFor='verifyPassword'>How did you hear about us?</label>
-        <label htmlFor='tv' className="radio-inline">
-          <input type='checkbox' id="tv" ref='tv' name='referral' value='tv' checked={this.state.referral === 'tv'} onChange={this.onRadioChange('referral')}/>
+        <label>How did you hear about us?</label>
+        <label htmlFor='tv' className='radio-inline'>
+          <input
+            type='checkbox'
+            id='tv'
+            value='tv'
+            checked={this.state.referral === 'tv'} onChange={this.onRadioChange('referral')}/>
           {' '}tv
         </label>
-        <label htmlFor='radio' className="radio-inline">
-          <input type='checkbox' id="radio" ref='radio' name='referral' value='radio' checked={this.state.referral === 'radio'} onChange={this.onRadioChange('referral')}/>
+        <label htmlFor='radio' className='radio-inline'>
+          <input
+            type='checkbox'
+            id='radio'
+            value='radio'
+            checked={this.state.referral === 'radio'} onChange={this.onRadioChange('referral')}/>
           {' '}radio
         </label>
         {this.props.getValidationMessages('referral').map(this.renderHelpText)}
@@ -40,14 +48,14 @@ var Demo = React.createClass({
   },
   renderHelpText: function(message) {
     return (
-      <span className="help-block">{message}</span>
+      <span className='help-block'>{message}</span>
     );
   },
   onChange: function(field) {
     return event => {
       let state = {};
       state[field] = event.target.value;
-      this.setState(state);
+      this.setState(state, this.props.handleValidation(field));
     };
   }
 });
