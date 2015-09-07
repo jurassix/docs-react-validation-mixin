@@ -32,7 +32,8 @@ var Demo = React.createClass({
             id='tv'
             name='referral'
             value='tv'
-            checked={this.state.referral === 'tv'} onChange={this.onRadioChange('referral')}/>
+            checked={this.state.referral === 'tv'}
+            onChange={this.onRadioChange('referral')}/>
           {' '}tv
         </label>
         <label htmlFor='radio' className='radio-inline'>
@@ -41,7 +42,8 @@ var Demo = React.createClass({
             id='radio'
             name='referral'
             value='radio'
-            checked={this.state.referral === 'radio'} onChange={this.onRadioChange('referral')}/>
+            checked={this.state.referral === 'radio'}
+            onChange={this.onRadioChange('referral')}/>
           {' '}radio
         </label>
         {this.props.getValidationMessages('referral').map(this.renderHelpText)}
