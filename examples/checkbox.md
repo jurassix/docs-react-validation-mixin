@@ -32,8 +32,7 @@ var Demo = React.createClass({
             ref='rememberMe'
             value='on'
             checked={this.state.rememberMe === 'on'}
-            onChange={this.onCheckboxChange('rememberMe')}
-          />
+            onChange={this.onCheckboxChange('rememberMe')}/>
         </label>
         {this.props.getValidationMessages('rememberMe').map(this.renderHelpText)}
       </div>
