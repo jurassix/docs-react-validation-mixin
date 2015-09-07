@@ -30,6 +30,7 @@ var Demo = React.createClass({
           <input
             type='checkbox'
             id='tv'
+            name='referral'
             value='tv'
             checked={this.state.referral === 'tv'} onChange={this.onRadioChange('referral')}/>
           {' '}tv
@@ -38,6 +39,7 @@ var Demo = React.createClass({
           <input
             type='checkbox'
             id='radio'
+            name='referral'
             value='radio'
             checked={this.state.referral === 'radio'} onChange={this.onRadioChange('referral')}/>
           {' '}radio
