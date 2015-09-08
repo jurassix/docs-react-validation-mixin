@@ -2,7 +2,7 @@
 
 ES6 Classes (_uncontrolled form_)
 ```javascript
-import {Component, PropTypes, findDOMNode} from 'react'
+import {Component, PropTypes, findDOMNode} from 'react';
 import Joi from 'joi';
 import validation from 'react-validation-mixin';
 import strategy from 'joi-validation-strategy';

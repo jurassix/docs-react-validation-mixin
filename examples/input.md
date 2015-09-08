@@ -9,7 +9,7 @@ import Joi from 'joi';
 import strategy from 'joi-validation-strategy';
 import validation from 'react-validation-mixin';
 
-var Demo = React.createClass({
+const Demo = React.createClass({
   displayName: 'Demo',
   validatorTypes:  {
     name: Joi.string().required().label('Name'),
@@ -52,5 +52,5 @@ var Demo = React.createClass({
   }
 });
 
-module.exports = validation(strategy)(Demo);
+export default validation(strategy)(Demo);
 ```

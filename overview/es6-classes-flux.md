@@ -1,7 +1,7 @@
 # ES6 Classes + FLUX Example
 
 ```javascript
-import {Component, PropTypes} from 'react'
+import {Component, PropTypes} from 'react';
 import Joi from 'joi';
 import validation from 'react-validation-mixin';
 import strategy from 'joi-validation-strategy';

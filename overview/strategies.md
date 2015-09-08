@@ -1,6 +1,6 @@
 # Strategy Pattern
 
-__react-validation-mixin__ exposes a factory that accepts an external strategy to handle validation. The user can choose or write a custom validation strategy and have a common API wihtin your React components.
+__react-validation-mixin__ exposes a factory that accepts an external strategy to handle validation. The user can choose or write a custom validation strategy and have a common API within your React components.
 
 A strategy has a simple Interface that requires a single method `validate(data, schema, key)` to be implemented.
 
