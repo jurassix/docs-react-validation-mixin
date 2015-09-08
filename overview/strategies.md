@@ -4,7 +4,7 @@ __react-validation-mixin__ exposes a factory that accepts an external strategy t
 
 A strategy has a simple Interface that requires a single method `validate(data, schema, key)` to be implemented.
 
-Example: (from _joi-validation-strategy_)
+Example: (from [_joi-validation-strategy_](https://github.com/jurassix/joi-validation-strategy))
 
 ```javascript
 import Joi from 'joi';
