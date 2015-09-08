@@ -55,7 +55,7 @@ const Demo = React.createClass({
       <span className='help-block'>{message}</span>
     );
   },
-  onChange: function(field) {
+  onRadioChange: function(field) {
     return event => {
       let state = {};
       state[field] = event.target.value;
