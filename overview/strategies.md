@@ -2,7 +2,7 @@
 
 __react-validation-mixin__ exposes a factory that accepts an external strategy to handle validation. The user can choose or write a custom validation strategy and have a common API within your React components.
 
-A strategy has a simple Interface that requires a single method `validate(data, schema, key)` to be implemented.
+A strategy has a simple Interface that requires a single method `validate(data, schema, options, callback)` to be implemented; _options = { key: '', prevErrors: {}}_.
 
 Example: (from [_joi-validation-strategy_](https://github.com/jurassix/joi-validation-strategy))
 
