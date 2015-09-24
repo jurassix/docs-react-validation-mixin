@@ -33,6 +33,14 @@ getValidatorData() {
 }
 ```
 
+### this.getValidationMessages
+
+_This method no longer returns an array; unless the datatype is an array._
+
+```javascript
+{this.renderHelpText(this.props.getValidationMessages('password'))}
+```
+
 ### this.props
 
 Your component will now receive the validation API as props.

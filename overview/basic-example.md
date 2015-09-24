@@ -41,7 +41,7 @@ class UserLogin extends Component {
             placeholder='Username'
             onBlur={this.props.handleValidation('username')}
           />
-          {this.props.getValidationMessages('username').map(this.renderHelpText)}
+          {this.renderHelpText(this.props.getValidationMessages('username'))}
         </div>
         <div className={this.getClasses('password')}>
           <label htmlFor='password'>Password</label>
@@ -52,7 +52,7 @@ class UserLogin extends Component {
             placeholder='Password'
             onBlur={this.props.handleValidation('password')}
           />
-          {this.props.getValidationMessages('password').map(this.renderHelpText)}
+          {this.renderHelpText(this.props.getValidationMessages('password'))}
         </div>
       </form>
     );

@@ -2,7 +2,7 @@
 
 ### `getValidationMessages([key])`
 
-returns an array of validation messages for this field.
+returns validation message(s) for this field.
 
 This API is a wrapper around `this.props.errors`, that returns validations for a single key, or all validations.
 

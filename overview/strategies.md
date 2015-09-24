@@ -8,35 +8,34 @@ Example: (from [_joi-validation-strategy_](https://github.com/jurassix/joi-valid
 
 ```javascript
 import Joi from 'joi';
-import union from 'lodash.union';
+import set from 'lodash.set';
+import isEmpty from 'lodash.isEmpty';
+import {hydrate} from './utils';
+import invariant from 'invariant';
 
 export default joiOptions => {
   return {
-    validate: function(data = {}, joiSchema = {}, key) {
-      const options = {
+    validate: function(data = {}, joiSchema = {}, options = {}, callback) {
+      invariant(typeof callback === 'function', 'joi-validation-strategy is asynchronous, a callback is expected: validate(data, schema, options, callback)');
+      const {key, prevErrors = {}} = options;
+      const validationOptions = {
         abortEarly: false,
         allowUnknown: true,
         ...joiOptions,
       };
-      const errors = this._format(Joi.validate(data, joiSchema, options));
-      if (key === undefined) {
-        union(Object.keys(joiSchema), Object.keys(data)).forEach(function(error) {
-          errors[error] = errors[error] || [];
-        });
-        return errors;
-      }
-      const result = {};
-      result[key] = errors[key];
-      return result;
+      Joi.validate(data, joiSchema, validationOptions, (error) => {
+        const errors = this.collectErrors(error);
+        if (key === undefined || key === null || isEmpty(errors)) {
+          return callback(hydrate(errors));
+        }
+        return callback(set(prevErrors, key, errors[key]));
+      });
     },
-    _format: function(joiResult) {
-      if (joiResult.error !== null) {
-        return joiResult.error.details.reduce(function(memo, detail) {
-          if (!Array.isArray(memo[detail.path])) {
-            memo[detail.path] = [];
-          }
-          memo[detail.path].push(detail.message);
-          return memo;
+    collectErrors: function(error) {
+      if (error !== null) {
+        return error.details.reduce((errors, {path, message}) => {
+          errors[path] = message;
+          return errors;
         }, {});
       }
       return {};

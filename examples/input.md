@@ -34,7 +34,7 @@ const Demo = React.createClass({
           onChange={this.onChange('name')}
           onBlur={this.props.handleValidation('name')}
         />
-        {this.props.getValidationMessages('name').map(this.renderHelpText)}
+        {this.renderHelpText(this.props.getValidationMessages('name'))}
       </div>
     )
   },

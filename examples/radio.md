@@ -46,7 +46,7 @@ const Demo = React.createClass({
             onChange={this.onRadioChange('referral')}/>
           {' '}radio
         </label>
-        {this.props.getValidationMessages('referral').map(this.renderHelpText)}
+        {this.renderHelpText(this.props.getValidationMessages('referral'))}
       </div>
     )
   },
