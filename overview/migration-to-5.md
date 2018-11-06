@@ -9,6 +9,10 @@ _react-validation-mixin_ is now extendable via strategies. You will need to inst
 ```javascript
 > npm install --save joi-validation-strategy
 ```
+OR 
+```
+> yarn add joi-validation-strategy
+```
 
 ### export your component
 
